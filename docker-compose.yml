@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:14
+    container_name: test_tremplin_db
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=verysecurepassword
+      - POSTGRES_DB=majordhom
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+    driver: local
